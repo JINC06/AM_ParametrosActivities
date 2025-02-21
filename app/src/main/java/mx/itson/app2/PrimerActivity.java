@@ -36,9 +36,13 @@ public class PrimerActivity extends AppCompatActivity {
                 String correo = etPrimerParametro.getText().toString();
 
                 Intent intent = new Intent(PrimerActivity.this, SegundoActivity.class);
+                //Agregar un parametro a la otra actividad
                 intent.putExtra("PRIMER_PARAMETRO", correo);
 
+                //Llamar a la otra actividad sin esperar el regreso
                 //startActivity(intent);
+
+                //Llamar a la otra actividad esperando un regreso
                 startActivityForResult(intent, 777);
             }
         });
@@ -51,6 +55,7 @@ public class PrimerActivity extends AppCompatActivity {
         });*/
     }
 
+    ///Esperando el regreso y escuchar cuando ocurra
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

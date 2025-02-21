@@ -25,6 +25,7 @@ public class SegundoActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_segundo);
 
+        ///Obtener el parametro enviado de la otra actividad
         String correoParametro = getIntent().getStringExtra("PRIMER_PARAMETRO");
 
         tvValorParametro = findViewById(R.id.tvValorParametro);
@@ -36,9 +37,11 @@ public class SegundoActivity extends AppCompatActivity {
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ///Enviar un parametro de regreso
                 String parametroRegreso = etParametroRegreso.getText().toString();
                 Intent intent = new Intent();
                 intent.putExtra("PARAMETRO_REGRESO", parametroRegreso);
+                //Indicar el resultado del llamado de esta actividad
                 setResult(RESULT_OK, intent);
                 finish();
             }
